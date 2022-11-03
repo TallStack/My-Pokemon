@@ -39,6 +39,7 @@ final class PokemonCell: UICollectionViewCell {
         label.tintColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.textColor = .red
         return label
     }()
 
@@ -48,6 +49,7 @@ final class PokemonCell: UICollectionViewCell {
         label.tintColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.textColor = .red
         return label
     }()
 

@@ -35,8 +35,13 @@ import UIKit
     private func setCustomStyle() {
         let font = UIFont(name: "Arial", size: 16) ?? .systemFont(ofSize: 16)
         navigationController?.navigationBar.titleTextAttributes = [.font: font]
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
+
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
             .setTitleTextAttributes([.font: font], for: .normal)
+        
+        view.backgroundColor = .systemBackground
     }
      
 //     override func viewDidLoad() {

@@ -50,7 +50,7 @@ final class PokemonListView: UIView {
         view.dataSource = self
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
+        view.backgroundColor = .systemBackground
         return view
     }()
     
