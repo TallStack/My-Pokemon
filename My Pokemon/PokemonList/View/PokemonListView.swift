@@ -26,7 +26,7 @@ final class PokemonListView: UIView {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .default
-        searchBar.placeholder = "Find Pokemon"
+        searchBar.placeholder = SearchString.SearchText.localizedSearch//"Find Pokemon"
         searchBar.searchTextField.font = UIFont(name: "Arial", size: 14)
         searchBar.sizeToFit()
         searchBar.layer.borderWidth = 1

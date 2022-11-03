@@ -23,7 +23,7 @@ import UIKit
 
     override func loadView() {
         self.view = contentView
-        title = "My Pokemon"
+        title = TitleString.TitleText.localizedText//"My Pokemon"
         setCustomStyle()
     }
 

@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  My Pokemon
+
+  Created by Keketso Ramosedi on 2022/11/03.
+  Copyright © 2022 TallStack Game Studios. All rights reserved.
+*/
+
+"SearchString_SearchText" = "Find Pokemon";
+"TitleString_TitleText" = "My Pokemon";
