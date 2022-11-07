@@ -25,7 +25,25 @@ final class My_PokemonTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+//        let num1 : Int32 = 14
+//        let num2 : Int32 = 14
+//        let result : Int32 = num1 + num2
+//
+//        XCTAssertEqual(result, 28)
         
+        
+    }
+    
+    func testUrlValid() throws {
+        var canOpen : Bool
+        canOpen = false
+        if Constants.apiUrl == "https://pokeapi.co/api/v2/" {
+                if let url = NSURL(string: Constants.apiUrl) {
+                    canOpen = UIApplication.shared.canOpenURL(url as URL)
+                }
+            }
+        
+        XCTAssertTrue(canOpen)
         
     }
 

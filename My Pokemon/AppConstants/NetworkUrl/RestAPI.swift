@@ -32,7 +32,7 @@ final class RestAPI {
         return URLSession(configuration: configuration)
     }()
 
-    private let baseURL = "https://pokeapi.co/api/v2/"
+    private let baseURL = Constants.apiUrl
     private let requestType: RestAPIType
 
     private var path: String {
