@@ -34,6 +34,87 @@ final class My_PokemonTests: XCTestCase {
         
     }
     
+    func testApiCallbackMethod_getPokemon() throws {
+        let myPokemonService = PokemonListService()
+
+        // 1. Define an expectation
+        let expectation = expectation(description: "myPokemonService will retrieve 1st pokemon item from API call and result should not be nil")
+
+
+        myPokemonService.getPokemon(id: "1", onComplete: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case let .success(pokemon):
+                XCTAssertEqual(pokemon.name, "bulbasaur")
+                expectation.fulfill()
+            case .failure:
+                XCTFail("Test Failed")
+            }
+        })
+       
+         // 3. Wait for the expectation to be fulfilled
+         waitForExpectations(timeout: 5) { error in
+             if let error = error {
+                 XCTFail("waitForExpectations errored: \(error)")
+             }
+         }
+        
+    }
+    
+    func testApiCallbackMethod_getPokemonList() throws {
+       let myPokemonService = PokemonListService()
+
+       // 1. Define an expectation
+       let expectation = expectation(description: "myPokemonService will retrieve 25 pokemon items from API call and result should not be nil")
+
+
+        myPokemonService.getPokemonList { [weak self] result in
+            guard let self = self else { return }
+            
+
+         // Don't forget to fulfill the expectation in the async callback
+         XCTAssertNotNil(result)
+         expectation.fulfill()
+       }
+        // 3. Wait for the expectation to be fulfilled
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectations errored: \(error)")
+            }
+        }
+     }
+    
+    func testGetPokemonListCount() throws {
+        let myPokemonService = PokemonListService()
+        
+        // 1. Define an expectation
+        let expectation = expectation(description: "myPokemonService will retrieve 25 pokemon items from API call")
+        
+        
+        myPokemonService.getPokemonList { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case let .success(list):
+                guard let pokemonList = list.results else { return }
+                XCTAssertEqual(pokemonList.count, 25)
+            case .failure:
+                return
+            }
+            
+            // Don't forget to fulfill the expectation in the async callback
+            expectation.fulfill()
+        }
+            // 3. Wait for the expectation to be fulfilled
+            waitForExpectations(timeout: 5) { error in
+                if let error = error {
+                    XCTFail("waitForExpectations errored: \(error)")
+                }
+            }
+       
+    }
+    
     func testUrlValid() throws {
         var canOpen : Bool
         canOpen = false
