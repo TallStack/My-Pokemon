@@ -20,8 +20,8 @@ final class PokemonListCoordinator: CoordinatorProtocol {
         let viewModel = PokemonListViewModel(coordinator: self)
         //let pokemonListVC = PokemonListViewController(viewModel: viewModel)
         //MARK: uncomment and replace in pushViewController for tableview variant
-        let pokemonTableVC = PokemonTableViewController()
-        //let pokemonTableVC = PokemonTableViewController(viewModel: viewModel)
+        //let pokemonTableVC = PokemonTableViewController()
+        let pokemonTableVC = PokemonTableViewController(viewModel: viewModel)
         navigationController.pushViewController(pokemonTableVC, animated: true)
     }
 }

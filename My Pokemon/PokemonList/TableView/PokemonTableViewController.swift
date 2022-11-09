@@ -10,20 +10,20 @@ import UIKit
 
 class PokemonTableViewController: UIViewController {
 
-    private var contentView: PokemonTableView!
-    
-    init() {
-        self.contentView = PokemonTableView()
-        super.init(nibName: nil, bundle: nil)
-    }
-    
 //    private var contentView: PokemonTableView!
-//    private var viewModel: PokemonListViewModelProtocol!
-//    init(viewModel: PokemonListViewModelProtocol) {
-//        self.viewModel = viewModel
-//        self.contentView = PokemonTableView(viewModel: viewModel)
+//
+//    init() {
+//        self.contentView = PokemonTableView()
 //        super.init(nibName: nil, bundle: nil)
 //    }
+    
+    private var contentView: PokemonTableView!
+    private var viewModel: PokemonListViewModelProtocol!
+    init(viewModel: PokemonListViewModelProtocol) {
+        self.viewModel = viewModel
+        self.contentView = PokemonTableView(viewModel: viewModel)
+        super.init(nibName: nil, bundle: nil)
+    }
 
     required init?(coder: NSCoder) {
        fatalError("init(coder:) has not been implemented")
@@ -37,6 +37,7 @@ class PokemonTableViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        viewModel.fetchPokemonList()
     }
 
     private func setCustomStyle() {

@@ -18,6 +18,13 @@ class TableCell: UITableViewCell {
     required init?(coder: NSCoder) {
        fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.pokemonImageView.image = nil
+        self.pokemonIdLabel.text = nil
+        self.pokemonNameLabel.text = nil
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -25,7 +32,7 @@ class TableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    let cardView: UIView = {
+    private lazy var cardView: UIView = {
        let view = UIView()
        view.layer.cornerRadius = 14
        view.backgroundColor = .white
@@ -33,15 +40,15 @@ class TableCell: UITableViewCell {
        return view
     }()
     
-    let pokemonImageView: UIImageView = {
+    private lazy var pokemonImageView: UIImageView = {
        let imageView = UIImageView()
-       imageView.layer.cornerRadius = 14
-       imageView.clipsToBounds = true
+       //imageView.layer.cornerRadius = 14
+       imageView.contentMode = .scaleAspectFit
        imageView.translatesAutoresizingMaskIntoConstraints = false
        return imageView
     }()
     
-    let testImageView: UIImageView = {
+    private lazy var testImageView: UIImageView = {
        let imageView = UIImageView()
        imageView.layer.cornerRadius = 25
        imageView.clipsToBounds = true
@@ -50,7 +57,7 @@ class TableCell: UITableViewCell {
        return imageView
     }()
     
-    let pokemonIdLabel: UILabel = {
+    private lazy var pokemonIdLabel: UILabel = {
        let label = UILabel()
        label.text = "Id"
        label.textAlignment = .center
@@ -59,7 +66,7 @@ class TableCell: UITableViewCell {
        return label
     }()
     
-    let pokemonNameLabel: UILabel = {
+    private lazy var pokemonNameLabel: UILabel = {
        let label = UILabel()
        label.text = "pokemon"
        label.textAlignment = .center

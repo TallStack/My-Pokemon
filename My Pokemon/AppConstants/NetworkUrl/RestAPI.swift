@@ -38,7 +38,7 @@ final class RestAPI {
     private var path: String {
         switch requestType {
         case .pokemonList:
-            return baseURL + "pokemon?limit=1&offset=0"
+            return baseURL + "pokemon?limit=25&offset=0"
         case let .pokemonDetail(id):
             return baseURL + "pokemon/\(id)"
         }
