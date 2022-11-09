@@ -51,6 +51,9 @@
 		4AD8BE632914F5D1007B52BD /* My_PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD8BE622914F5D1007B52BD /* My_PokemonTests.swift */; };
 		4AD8BE702914F5EC007B52BD /* My_PokemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD8BE6F2914F5EC007B52BD /* My_PokemonUITests.swift */; };
 		4AD8BE722914F5EC007B52BD /* My_PokemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD8BE712914F5EC007B52BD /* My_PokemonUITestsLaunchTests.swift */; };
+		4AD8BE7A291A4EBD007B52BD /* PokemonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD8BE79291A4EBD007B52BD /* PokemonTableViewController.swift */; };
+		4AD8BE7C291A4F19007B52BD /* PokemonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD8BE7B291A4F19007B52BD /* PokemonTableView.swift */; };
+		4AD8BE7E291A52FB007B52BD /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD8BE7D291A52FB007B52BD /* TableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,9 @@
 		4AD8BE6D2914F5EC007B52BD /* My PokemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My PokemonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD8BE6F2914F5EC007B52BD /* My_PokemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_PokemonUITests.swift; sourceTree = "<group>"; };
 		4AD8BE712914F5EC007B52BD /* My_PokemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_PokemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4AD8BE79291A4EBD007B52BD /* PokemonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewController.swift; sourceTree = "<group>"; };
+		4AD8BE7B291A4F19007B52BD /* PokemonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableView.swift; sourceTree = "<group>"; };
+		4AD8BE7D291A52FB007B52BD /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,7 @@
 		4AAF8CA82910579D00890794 /* PokemonList */ = {
 			isa = PBXGroup;
 			children = (
+				4AD8BE78291A4329007B52BD /* TableView */,
 				4AAF8CAF291058A800890794 /* View */,
 				4AAF8CAE2910589A00890794 /* ViewModel */,
 				4AAF8CAD2910589500890794 /* Model */,
@@ -337,6 +344,16 @@
 			path = "My PokemonUITests";
 			sourceTree = "<group>";
 		};
+		4AD8BE78291A4329007B52BD /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				4AD8BE79291A4EBD007B52BD /* PokemonTableViewController.swift */,
+				4AD8BE7B291A4F19007B52BD /* PokemonTableView.swift */,
+				4AD8BE7D291A52FB007B52BD /* TableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,6 +490,7 @@
 				4AAF8CCD29106F4800890794 /* PokemonListViewModelProtocol.swift in Sources */,
 				4AAF8CB529105F1000890794 /* ImageCache.swift in Sources */,
 				4AAF8CE929107A3100890794 /* PokemonDetailCoordinatorProtocol.swift in Sources */,
+				4AD8BE7E291A52FB007B52BD /* TableCell.swift in Sources */,
 				4AAF8CB329105E2F00890794 /* RestAPI.swift in Sources */,
 				4AAF8CE3291073A400890794 /* PokemonCell.swift in Sources */,
 				4AAF8CBB2910632200890794 /* PokemonDetail.swift in Sources */,
@@ -491,6 +509,7 @@
 				4AAF8CCB29106F1A00890794 /* PokemonCellViewModel.swift in Sources */,
 				4AAF8CC12910639400890794 /* Type.swift in Sources */,
 				4AAF8CD129106FC300890794 /* PokemonListCoordinator.swift in Sources */,
+				4AD8BE7C291A4F19007B52BD /* PokemonTableView.swift in Sources */,
 				4AD8BE5A2913D13E007B52BD /* LocalizableStrings.swift in Sources */,
 				4AAF8CB9291062DA00890794 /* PokemonList.swift in Sources */,
 				4AAF8CEB29107A5800890794 /* PokemonDetailCoordinator.swift in Sources */,
@@ -500,6 +519,7 @@
 				4AAF8CF529107C7600890794 /* PokemonDetailView.swift in Sources */,
 				4AAF8CC7291063BF00890794 /* Abilities.swift in Sources */,
 				4AAF8CD7291070D600890794 /* ShowAlert.swift in Sources */,
+				4AD8BE7A291A4EBD007B52BD /* PokemonTableViewController.swift in Sources */,
 				4AAF8CE12910737300890794 /* PokemonListView.swift in Sources */,
 				4AAF8CBF2910636B00890794 /* Form.swift in Sources */,
 				4AAF8CF729107CCD00890794 /* PokemonDetailViewProtocol.swift in Sources */,
