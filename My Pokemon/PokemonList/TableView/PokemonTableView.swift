@@ -52,6 +52,8 @@ class PokemonTableView: UIView {
        let table = UITableView()
        table.translatesAutoresizingMaskIntoConstraints = false
        table.register(TableCell.self, forCellReuseIdentifier: "myCell")
+       table.register(RandomTableCell.self, forCellReuseIdentifier: "RandomTableCell")
+       table.register(BackTableCell.self, forCellReuseIdentifier: "BackTableCell")
        table.rowHeight = 250
        table.delegate = self
        table.dataSource = self
@@ -119,6 +121,18 @@ extension PokemonTableView: UISearchBarDelegate {
 }
 extension PokemonTableView: UITableViewDelegate, UITableViewDataSource {
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+       if indexPath.row < 10 {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "RandomTableCell") as! RandomTableCell
+           cell.configure(with: viewModel.cellViewModelFor(at: indexPath))
+           return cell
+       }else if indexPath.row < 20 {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "BackTableCell") as! BackTableCell
+           cell.configure(with: viewModel.cellViewModelFor(at: indexPath))
+           return cell
+       }
+      
+       
       let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! TableCell
       //cell.pokemonImageView.load(url: URL(string: photos[indexPath.row])!)
       //cell.testImageView.load(url: URL(string: photos[indexPath.row])!)
@@ -130,8 +144,24 @@ extension PokemonTableView: UITableViewDelegate, UITableViewDataSource {
       //return photos.count
    }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    //OnClick Call for Specific indexPath
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.openDetailFor(indexPath: indexPath)
+    }
+    // Create a standard header that includes the returned text.
+    func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+       return "Pokemons \(section)"
+    }
+
+    // Create a standard footer that includes the returned text.
+    func tableView(_ tableView: UITableView, titleForFooterInSection
+                                section: Int) -> String? {
+       return "Gotta catch em all \(section)"
     }
 }
 extension PokemonTableView: PokemonListViewProtocol {
