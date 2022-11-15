@@ -10,7 +10,17 @@ import UIKit
 
 class PokemonTableView: UIView {
 
-    let photos = ["https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard3.jpg?raw=true", "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard3.jpg?raw=true", "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard3.jpg?raw=true"]
+    let photos = [["https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard3.jpg?raw=true", "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard3.jpg?raw=true", "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard3.jpg?raw=true"],
+                  
+        ["https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard2.jpg?raw=true",
+         "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard2.jpg?raw=true",
+         "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard2.jpg?raw=true"],
+                  
+        ["https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard1.jpg?raw=true",
+         "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard1.jpg?raw=true",
+         "https://github.com/TallStack/MinoxBeard/blob/master/MinoxBeard/MinoxBeard/Assets/Images/beard1.jpg?raw=true"]]
+    
+    let sections = ["First Photos", "Second Photos", "Third Photos"]
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -131,21 +141,44 @@ extension PokemonTableView: UITableViewDelegate, UITableViewDataSource {
            cell.configure(with: viewModel.cellViewModelFor(at: indexPath))
            return cell
        }
-      
-       
+
+
       let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! TableCell
       //cell.pokemonImageView.load(url: URL(string: photos[indexPath.row])!)
       //cell.testImageView.load(url: URL(string: photos[indexPath.row])!)
       cell.configure(with: viewModel.cellViewModelFor(at: indexPath))
       return cell
+//
+       //MARK: Using hardcoded values for example
+//       if indexPath.section == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! TableCell
+//            cell.pokemonImageView.load(url: URL(string: photos[indexPath.section][indexPath.row])!)
+//            return cell
+//       }else if indexPath.section == 1 {
+//           let cell = tableView.dequeueReusableCell(withIdentifier: "RandomTableCell") as! RandomTableCell
+//           cell.cellImageView.load(url: URL(string: photos[indexPath.section][indexPath.row])!)
+//           cell.cellLabel.text = "Beard for Section \(indexPath.section)"
+//           return cell
+//       }else {
+//           let cell = tableView.dequeueReusableCell(withIdentifier: "BackTableCell") as! BackTableCell
+//           cell.cellImageView.load(url: URL(string: photos[indexPath.section][indexPath.row])!)
+//           cell.cellLabel.text = "Beard for Section \(indexPath.section)"
+//           cell.secondCellLabel.text = "Whooo \(indexPath.section)"
+//           return cell
+//       }
 }
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return viewModel.countPokemons
-      //return photos.count
+
+       //MARK: Using hardcoded values for example
+       //return self.photos[section].count
    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+        
+        //MARK: Using hardcoded values for example
+        //return self.sections.count
     }
     
     //OnClick Call for Specific indexPath
@@ -155,13 +188,19 @@ extension PokemonTableView: UITableViewDelegate, UITableViewDataSource {
     // Create a standard header that includes the returned text.
     func tableView(_ tableView: UITableView, titleForHeaderInSection
                                 section: Int) -> String? {
-       return "Pokemons \(section)"
+        return "Pokemons \(section)"
+        
+        //MARK: Using hardcoded values for example
+        //return self.sections[section]
     }
 
     // Create a standard footer that includes the returned text.
     func tableView(_ tableView: UITableView, titleForFooterInSection
                                 section: Int) -> String? {
        return "Gotta catch em all \(section)"
+        
+        //MARK: Using hardcoded values for example
+       // return self.sections[section] + " end"
     }
 }
 extension PokemonTableView: PokemonListViewProtocol {

@@ -40,7 +40,8 @@ class TableCell: UITableViewCell {
        return view
     }()
     
-    private lazy var pokemonImageView: UIImageView = {
+    //MARK: changed to public so I can test with hard coded values, should be normally private and updated in the configure method
+    public lazy var pokemonImageView: UIImageView = {
        let imageView = UIImageView()
        //imageView.layer.cornerRadius = 14
        imageView.contentMode = .scaleAspectFit
